@@ -289,17 +289,8 @@ class PawnController extends Controller
     {
         try {
             DB::beginTransaction();
-            //$remote = new ImageRemoteService();
-            $urls =['https://fotografiamejorparavendermas.com/wp-content/uploads/2017/06/La-importancia-de-la-imagen.jpg','https://st2.depositphotos.com/1102480/7545/i/450/depositphotos_75454855-stock-photo-google-chrome-logo-printed-on.jpg','https://static.vecteezy.com/packs/media/vectors/term-bg-1-3d6355ab.jpg','https://www.40defiebre.com/wp-content/uploads/2014/05/imagen_redessociales.png'];
-            $pawnId = $request->pawn_id;
-            foreach ($urls as $url) {
-                PawnImage::create([
-                    'pawn_id' => $pawnId,
-                    'url' => $url,
-                    'delete_hash' => 'AAA'
-                ]);
-            }
-          /*   $images = $request->images;
+            $remote = new ImageRemoteService();
+            $images = $request->images;
             $pawnId = $request->pawn_id;
             foreach ($images as $image) {
                 if ($remote->validateFile($image) == true) {
@@ -312,7 +303,7 @@ class PawnController extends Controller
                         'delete_hash' => $hash
                     ]);
                 }
-            } */
+            } 
             DB::commit();
             return response()->json([
                 "status" => "200",

@@ -13,7 +13,7 @@ class ImageRemoteService
     public function __construct()
     {
         $this->remoteServer = 'https://api.imgur.com/3/image';
-        $this->clientId = '07c723a1c44ff65';
+        $this->clientId = '4e61d1e0e12b313';
      
     }
     public function saveImgur($file)
